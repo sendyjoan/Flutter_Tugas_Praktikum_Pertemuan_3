@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -28,6 +28,17 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+final kategori = [
+  'Bola',
+  'Kesehatan',
+  'Lifestyle',
+  'Hukum',
+  'Teknologi',
+  'Perikanan',
+  'Food',
+  'Tren',
+];
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -117,11 +128,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                     color: Colors.green,
                                     borderRadius: BorderRadius.circular(10),
                                   ),
-                                  child: Column(
-                                    children: [
-                                      Text("Kategori"),
-                                      Text("Bola"),
-                                    ],
+                                  child: Kategori(
+                                    child: kategori[index],
                                   ),
                                 ),
                               ],
@@ -151,6 +159,25 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ), // This trailing comma makes auto-formatting nicer for build methods.
+    );
+  }
+}
+
+class Kategori extends StatelessWidget {
+  final String child;
+
+  const Kategori({
+    Key? key,
+    required this.child,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Text("Kategori"),
+        Text(child),
+      ],
     );
   }
 }
